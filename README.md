@@ -2,8 +2,6 @@
 
 MyLogPHP is a single PHP class to easily keep log files in CSV format.
 
-This class allow programmers to easily write messages to a log file.
-
 <h2>Download the latest version</h2>
 
 <a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php (1.2.2)</a>
