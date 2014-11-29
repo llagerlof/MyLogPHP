@@ -4,23 +4,23 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 
 This class allow programmers to easily write messages to a log file.
 
-<h2>DOWNLOAD LATEST VERSION</h2>
+<h2>Download the latest version</h2>
 
 <a href="http://goo.gl/DB2aKK">MyLogPHP.class.php 1.2.2</a>
 
 Any CSV reader can be used to open the generated logs, but If you need a recomendation, try the <a href="http://www.nirsoft.net/utils/csv_file_view.html">CSVFileView</a>.
 
-<h2>FEATURES</h2>
+<h2>Features</h2>
 
 * One single file to rule them all!
 * Super easy start.
-* Output the execution line and the path of host script where the log was called.
+* Output to the CSV the execution line and the path of host script where the log was called.
 
-<h2>Want more features? I AM LISTENING!</h2>
+<h2>Want more features? I am listening!</h2>
 
 <a href="http://mylogphp.uservoice.com" target="_blank"><font size="4">mylogphp.uservoice.com</font></a> (no login required)
 
-<h2>QUICK START</h2>
+<h2>Quick start</h2>
 
 Include in your script the file "MyLogPHP.class.php".
 
@@ -45,7 +45,7 @@ $log->info('This message will be logged in the file debug.log.csv','TIP');
 
 That's it!
 
-<h2>EXAMPLES</h2>
+<h2>Examples</h2>
 
 ```php
 $log = new MyLogPHP();
@@ -65,7 +65,7 @@ $log->error('Everything crash and burn','IE');
 $log->debug("select * from table",'DB');
 ```
 
-<h2>CHANGELOG</h2>
+<h2>Changelog</h2>
 
 **1.2.2**
 * Line breaks of VALUE field are converted to spaces to prevent some CSV readers wrongly interpret line breaks as new CSV lines.
