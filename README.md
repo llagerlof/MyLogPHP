@@ -4,7 +4,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 
 <h2>Download the latest version</h2>
 
-<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.2)
+<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.3)
 
 Any CSV reader can be used to open the generated logs, but If you need a recomendation, try the <a href="http://www.nirsoft.net/utils/csv_file_view.html">CSVFileView</a>.
 
@@ -64,6 +64,10 @@ $log->debug("select * from table",'DB');
 ```
 
 <h2>Changelog</h2>
+
+**1.2.3**
+* PHPDOC comment style applied to the class. 
+* An issue with the newer version of PHP and the date() function was solved.
 
 **1.2.2**
 * Line breaks of VALUE field are converted to spaces to prevent some CSV readers wrongly interpret line breaks as new CSV lines.
