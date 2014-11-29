@@ -6,7 +6,7 @@ This class allow programmers to easily write messages to a log file.
 
 <h2>Download the latest version</h2>
 
-<a href="http://goo.gl/DB2aKK">MyLogPHP.class.php 1.2.2</a>
+<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php (1.2.2)</a>
 
 Any CSV reader can be used to open the generated logs, but If you need a recomendation, try the <a href="http://www.nirsoft.net/utils/csv_file_view.html">CSVFileView</a>.
 
