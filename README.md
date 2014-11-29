@@ -16,7 +16,7 @@ Any CSV reader can be used to open the generated logs, but If you need a recomen
 
 <h2>Want more features? I am listening!</h2>
 
-Create an issue in https://github.com/llagerlof/MyLogPHP/issues/new and add the label **enhancement**.
+Create an issue in https://github.com/llagerlof/MyLogPHP/issues/new and apply the label **feature request**.
 
 <h2>Quick start</h2>
 
