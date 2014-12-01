@@ -78,6 +78,7 @@ class MyLogPHP {
 		$file = $debugBacktrace[1]['file'];
 
 		$value = str_replace(array("\r\n", "\n\r", "\r", "\n"), " ", trim($value));
+		preg_replace('/\s+/', ' ', $value);
 
 		$entry = array($datetime,$errorlevel,$tag,$value,$line,$file);
 
