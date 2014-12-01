@@ -65,6 +65,9 @@ $log->debug("select * from table",'DB');
 
 <h2>Changelog</h2>
 
+**1.2.4**
+* All consecutives spaces and tabs are removed from output.
+
 **1.2.3**
 * PHPDOC comment style applied to the class. 
 * An issue with the newer version of PHP and the date() function was solved.
