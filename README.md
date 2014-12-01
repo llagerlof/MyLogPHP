@@ -13,6 +13,7 @@ Any CSV reader can be used to open the generated logs, but If you need a recomen
 * One single file to rule them all!
 * Super easy start.
 * Two extra columns are automatically added in the CSV: the number of execution line and the path of host script where the log was called.
+* Minimum PHP version: 5.1
 
 <h2>Want more features? I am listening!</h2>
 
