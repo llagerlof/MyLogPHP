@@ -6,7 +6,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 
 <a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.5)
 
-Any CSV reader can be used to open the generated logs, but If you need a recomendation, try the <a href="http://www.nirsoft.net/utils/csv_file_view.html">CSVFileView</a>.
+Any CSV reader can be used to open the generated logs, but If you need a recomendation, try the <a href="http://www.nirsoft.net/utils/csv_file_view.html">CSVFileView</a> or <a href="http://www.log-expert.de">LogExpert</a>. Both can parse/show the CSV columns and watch realtime changes in log file (like tail on Linux).
 
 <h2>Features</h2>
 
