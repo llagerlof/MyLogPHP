@@ -1,0 +1,25 @@
+{
+	"name": "llagerlof/mylogphp",
+	"description": "MyLogPHP is a single PHP class to easily keep log files in CSV format.",
+	"license": "BSD-3-Clause",
+	"version": "1.2.6",
+	"homepage": "https://github.com/llagerlof/MyLogPHP",
+    "keywords": [
+        "php", "log", "logger", "logging", "csv"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/llagerlof/mylogphp.git"
+    },
+    "authors": [
+        {
+            "name": "Lawrence Lagerlof",
+            "email": "llagerlof@gmail.com",
+            "homepage": "http://google.com/+LawrenceLagerlof",
+            "role": "Developer"
+        }
+    ],
+	"autoload": {
+		"classmap": ["MyLogPHP.class.php"]
+	}
+}
