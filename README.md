@@ -39,7 +39,7 @@ Create an issue in https://github.com/llagerlof/MyLogPHP/issues/new
 
 <h2>Quick start</h2>
 
-Include in your script the file "MyLogPHP.class.php".
+Include in your script the file "MyLogPHP.class.php" (not needed if you are using the composer version).
 
 ```php
 include('MyLogPHP.class.php');
