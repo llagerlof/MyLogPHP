@@ -13,12 +13,6 @@ Eg:
 
     {
         "name": "your/project",
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/llagerlof/mylogphp"
-            }
-        ],
         "require": {
             "llagerlof/mylogphp": "dev-master"
         }
