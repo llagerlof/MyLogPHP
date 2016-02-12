@@ -7,7 +7,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 <h3>Direct download</h3>
 <a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.6)
 <h3>Composer</h3>
-Edit your project's **composer.json** and add the repository **https://github.com/llagerlof/mylogphp** and the required package: **"llagerlof/mylogphp": "dev-master"**
+Edit your project's **composer.json** and add the required package: **"llagerlof/mylogphp": "dev-master"**
 
 Eg:
 
