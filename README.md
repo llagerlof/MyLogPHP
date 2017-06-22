@@ -79,6 +79,9 @@ $log->debug("select * from table",'DB');
 
 <h2>Changelog</h2>
 
+**1.2.7**
+* New method out() allow append a variable value to the end of the file _OUT_MyLogPHP.txt
+
 **1.2.6**
 * Class updated for PHP 7 (thanks [@clintre](https://github.com/clintre)).
 
