@@ -75,9 +75,26 @@ $log->info('Asimov rulez','FACT');
 $log->error('Everything crash and burn','IE');
 
 $log->debug("select * from table",'DB');
+
+```
+
+Writing a variable content to file "_OUT_MyLogPHP.txt"
+
+```
+MyLogPHP::out($data);
+
+MyLogPHP::out($data, array('LABEL' => 'variable $data');
+
+MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::OVERWRITE));
+
+MyLogPHP::out($dados_matricula, array('LABEL' => '$dados_matricula', 'WRITE_MODE' => MyLogPHP::APPEND)); // OVERWRITE or APPEND (default)
+
 ```
 
 <h2>Changelog</h2>
+
+**1.2.8**
+* Add more options and verbosity to out() method.
 
 **1.2.7**
 * New method out() allow append a variable value to the end of the file _OUT_MyLogPHP.txt
