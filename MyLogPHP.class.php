@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.7
+ * MyLogPHP 1.2.8
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -13,6 +13,7 @@
  */
 
 class MyLogPHP {
+
 
 	/**
 	 * Name of the file where the message logs will be appended.
@@ -34,6 +35,12 @@ class MyLogPHP {
 
 	/* @const Default tag. */
 	const DEFAULT_TAG = '--';
+
+	/* @const overwrite file in out() method. */
+	const OVERWRITE = null;
+	
+	/* @const append to file in out() method. */
+	const APPEND = FILE_APPEND;
 
 	/**
 	 * Constructor
@@ -143,11 +150,35 @@ class MyLogPHP {
 	 * Allow to append a variable value to the end of the file _OUT_MyLogPHP.txt
 	 *
 	 * @param mixed $variable_to_output
-	 * @param string $output_path
+	 * @param mixed $options
 	 */
-	public function out($variable_to_output, $output_path = "") {
+	public function out($variable_to_output, $options = null) {
+		// $options = array('OUTPUT_PATH' => '', 'WRITE_MODE' => APPEND, 'LABEL' => 'Label');
+		if (is_null($options)) {
+			$write_mode = FILE_APPEND;
+			$output_path = '';
+			$label = null;
+		} else {
+			$output_path = array_key_exists('OUTPUT_PATH', $options) ? $options['OUTPUT_PATH'] : '';
+			$write_mode = array_key_exists('WRITE_MODE', $options) ? $options['WRITE_MODE'] : FILE_APPEND;
+			if ($write_mode !== FILE_APPEND) {
+				$write_mode = null;
+			}
+			$label = array_key_exists('LABEL', $options) ? $options['LABEL'] : null;
+		}
 
-		file_put_contents($output_path . '_OUT_MyLogPHP.txt', print_r($variable_to_output, true), FILE_APPEND);
+		$print_r_variable_to_output = print_r($variable_to_output, true) . "\n\n" . str_repeat('-', 80) . "\n";
+		
+		$datetime = date("H:i:s Y-m-d");
+		if (!empty($label)) {
+			$datetime_span_position = 80 - (strlen('[' . $label . ']') + strlen($datetime));
+			$print_r_variable_to_output = '[' . $label . ']' . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+		} else {
+			$datetime_span_position = 80 - (strlen($datetime));
+			$print_r_variable_to_output = str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+		}
+		
+		file_put_contents($output_path . '_OUT_MyLogPHP.txt', $print_r_variable_to_output, $write_mode);
 	}
 
 }
