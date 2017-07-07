@@ -87,7 +87,7 @@ MyLogPHP::out($data, array('LABEL' => 'variable $data');
 
 MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::OVERWRITE));
 
-MyLogPHP::out($dados_matricula, array('LABEL' => '$dados_matricula', 'WRITE_MODE' => MyLogPHP::APPEND)); // OVERWRITE or APPEND (default)
+MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::APPEND)); // OVERWRITE or APPEND (default)
 
 ```
 
