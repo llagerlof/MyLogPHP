@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.8
+ * MyLogPHP 1.2.9
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -13,7 +13,6 @@
  */
 
 class MyLogPHP {
-
 
 	/**
 	 * Name of the file where the message logs will be appended.
@@ -69,14 +68,14 @@ class MyLogPHP {
 	 */
 	private function log($errorlevel = 'INFO', $value = '', $tag) {
 
-		$datetime = @date("Y-m-d H:i:s");
+		$datetime = date("Y-m-d H:i:s");
 		if (!file_exists($this->LOGFILENAME)) {
 			$headers = $this->HEADERS . "\n";
 		}
 
 		$fd = fopen($this->LOGFILENAME, "a");
 
-		if (@$headers) {
+		if (!empty($headers)) {
 			fwrite($fd, $headers);
 		}
 
