@@ -38,7 +38,7 @@ class MyLogPHP {
 
 	/* @const overwrite file in out() method. */
 	const OVERWRITE = null;
-	
+
 	/* @const append to file in out() method. */
 	const APPEND = FILE_APPEND;
 
@@ -168,16 +168,18 @@ class MyLogPHP {
 		}
 
 		$print_r_variable_to_output = print_r($variable_to_output, true) . "\n\n" . str_repeat('-', 80) . "\n";
-		
+
+		$variable_type = gettype($variable_to_output);
+
 		$datetime = date("H:i:s Y-m-d");
 		if (!empty($label)) {
-			$datetime_span_position = 80 - (strlen('[' . $label . ']') + strlen($datetime));
-			$print_r_variable_to_output = '[' . $label . ']' . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$datetime_span_position = 80 - (strlen('[' . $label . '] ' . $variable_type) + strlen($datetime));
+			$print_r_variable_to_output = '[' . $label . '] ' . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
 		} else {
-			$datetime_span_position = 80 - (strlen($datetime));
-			$print_r_variable_to_output = str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$datetime_span_position = 80 - (strlen($variable_type) + strlen($datetime));
+			$print_r_variable_to_output = $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
 		}
-		
+
 		file_put_contents($output_path . '_OUT_MyLogPHP.txt', $print_r_variable_to_output, $write_mode);
 	}
 
