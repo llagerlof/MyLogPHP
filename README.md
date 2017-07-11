@@ -94,7 +94,7 @@ MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP
 <h2>Changelog</h2>
 
 **1.2.9**
-* Removed supressed warnings from variable $headers and date() functions. (Note from PHP docs about date(): Since PHP 5.1.0 (when the date/time functions were rewritten), every call to a date/time function will generate a E_NOTICE if the timezone isn't valid, and/or a E_WARNING message if using the system settings or the TZ environment variable).
+* Removed supressed warnings from variable $headers and date() functions.
 
 **1.2.8**
 * Add more options and verbosity to out() method.
