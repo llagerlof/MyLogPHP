@@ -5,7 +5,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 <h2>Install the latest version</h2>
 
 <h3>Direct download (just include this file in your script)</h3>
-<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.9)
+<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.10)
 <br>
 <h3>Or you can use Composer</h3>
 Edit your project's **composer.json** and add the required package: **"llagerlof/mylogphp": "dev-master"**
@@ -85,13 +85,18 @@ MyLogPHP::out($data);
 
 MyLogPHP::out($data, array('LABEL' => 'variable $data');
 
+MyLogPHP::out($data, 'variable $data'); // same as above
+
 MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::OVERWRITE));
 
-MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::APPEND)); // OVERWRITE or APPEND (default)
+MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::APPEND)); // WRITE_MODE can be OVERWRITE or APPEND (APPEND is default)
 
 ```
 
 <h2>Changelog</h2>
+
+**1.2.10**
+* Can pass a string to act as LABEL to the second parameter of out() method.
 
 **1.2.9**
 * Removed supressed warnings from variable $headers and date() functions.

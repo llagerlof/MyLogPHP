@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.9
+ * MyLogPHP 1.2.10
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -153,11 +153,15 @@ class MyLogPHP {
 	 */
 	public function out($variable_to_output, $options = null) {
 		// $options = array('OUTPUT_PATH' => '', 'WRITE_MODE' => APPEND, 'LABEL' => 'Label');
-		if (is_null($options)) {
+		if (empty($options)) {
 			$write_mode = FILE_APPEND;
 			$output_path = '';
 			$label = null;
-		} else {
+		} elseif (is_string($options)) {
+			$write_mode = FILE_APPEND;
+			$output_path = '';
+			$label = $options;
+		} elseif (is_array($options)) {
 			$output_path = array_key_exists('OUTPUT_PATH', $options) ? $options['OUTPUT_PATH'] : '';
 			$write_mode = array_key_exists('WRITE_MODE', $options) ? $options['WRITE_MODE'] : FILE_APPEND;
 			if ($write_mode !== FILE_APPEND) {
