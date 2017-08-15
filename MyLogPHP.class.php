@@ -151,7 +151,7 @@ class MyLogPHP {
 	 * @param mixed $variable_to_output
 	 * @param mixed $options
 	 */
-	public function out($variable_to_output, $options = null) {
+	public static function out($variable_to_output, $options = null) {
 		// $options = array('OUTPUT_PATH' => '', 'WRITE_MODE' => APPEND, 'LABEL' => 'Label');
 		if (empty($options)) {
 			$write_mode = FILE_APPEND;
