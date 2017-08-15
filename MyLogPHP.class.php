@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.10
+ * MyLogPHP 1.2.11
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
