@@ -153,22 +153,26 @@ class MyLogPHP {
 	 */
 	public static function out($variable_to_output, $options = null) {
 		// $options = array('OUTPUT_PATH' => '', 'WRITE_MODE' => APPEND, 'LABEL' => 'Label');
+		// If OUTPUT_PATH is not defined, $_SESSION['MYLOGPHP_OUT_PATH'] is used instead. If the last is not defined too, current directory is used.
 		if (empty($options)) {
 			$write_mode = FILE_APPEND;
-			$output_path = '';
+			$output_path = (!empty($_SESSION['MYLOGPHP_OUT_PATH'])) ? $_SESSION['MYLOGPHP_OUT_PATH'] : '';
 			$label = null;
 		} elseif (is_string($options)) {
 			$write_mode = FILE_APPEND;
-			$output_path = '';
+			$output_path = (!empty($_SESSION['MYLOGPHP_OUT_PATH'])) ? $_SESSION['MYLOGPHP_OUT_PATH'] : '';
 			$label = $options;
 		} elseif (is_array($options)) {
-			$output_path = array_key_exists('OUTPUT_PATH', $options) ? $options['OUTPUT_PATH'] : '';
+			$output_path = array_key_exists('OUTPUT_PATH', $options) ? $options['OUTPUT_PATH'] : ( (!empty($_SESSION['MYLOGPHP_OUT_PATH'])) ? $_SESSION['MYLOGPHP_OUT_PATH'] : '' );
 			$write_mode = array_key_exists('WRITE_MODE', $options) ? $options['WRITE_MODE'] : FILE_APPEND;
 			if ($write_mode !== FILE_APPEND) {
 				$write_mode = null;
 			}
 			$label = array_key_exists('LABEL', $options) ? $options['LABEL'] : null;
 		}
+
+		$arr_file_name = explode('(', basename($_SERVER['SCRIPT_FILENAME']));
+		$file_name = str_repeat(' ', 80 - strlen($arr_file_name[0])). $arr_file_name[0];
 
 		$print_r_variable_to_output = print_r($variable_to_output, true) . "\n\n" . str_repeat('-', 80) . "\n";
 
@@ -177,10 +181,10 @@ class MyLogPHP {
 		$datetime = date("H:i:s Y-m-d");
 		if (!empty($label)) {
 			$datetime_span_position = 80 - (strlen('[' . $label . '] ' . $variable_type) + strlen($datetime));
-			$print_r_variable_to_output = '[' . $label . '] ' . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$print_r_variable_to_output = $file_name . "\n" . '[' . $label . '] ' . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
 		} else {
 			$datetime_span_position = 80 - (strlen($variable_type) + strlen($datetime));
-			$print_r_variable_to_output = $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$print_r_variable_to_output = $file_name . "\n" . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
 		}
 
 		file_put_contents($output_path . '_OUT_MyLogPHP.txt', $print_r_variable_to_output, $write_mode);
