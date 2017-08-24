@@ -171,14 +171,20 @@ class MyLogPHP {
 			$label = array_key_exists('LABEL', $options) ? $options['LABEL'] : null;
 		}
 
-		$arr_file_name = explode('(', basename($_SERVER['SCRIPT_FILENAME']));
-		$file_name = str_repeat(' ', 80 - strlen($arr_file_name[0])). $arr_file_name[0];
+		$backtrace = debug_backtrace();
+		$backtrace_text = print_r($backtrace, true);
+		$filename_full = $backtrace[0]['file'];
+		$line_call = ' (' . $backtrace[0]['line'] . ')';
+
+		$arr_file_name = explode('(', basename($filename_full));
+		$file_name = str_repeat(' ', 80 - strlen($arr_file_name[0] . $line_call)) . $arr_file_name[0] . $line_call;
 
 		$print_r_variable_to_output = print_r($variable_to_output, true) . "\n\n" . str_repeat('-', 80) . "\n";
 
 		$variable_type = gettype($variable_to_output);
 
 		$datetime = date("H:i:s Y-m-d");
+
 		if (!empty($label)) {
 			$datetime_span_position = 80 - (strlen('[' . $label . '] ' . $variable_type) + strlen($datetime));
 			$print_r_variable_to_output = $file_name . "\n" . '[' . $label . '] ' . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
