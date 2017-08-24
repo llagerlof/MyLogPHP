@@ -5,7 +5,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 <h2>Install the latest version</h2>
 
 <h3>Direct download (just include this file in your script)</h3>
-<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.12)
+<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.13)
 <br>
 <h3>Or you can use Composer</h3>
 Edit your project's **composer.json** and add the required package: **"llagerlof/mylogphp": "dev-master"**
@@ -94,6 +94,10 @@ MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP
 ```
 
 <h2>Changelog</h2>
+
+
+**1.2.13**
+* Added the file and execution line info to output of the out() method.
 
 **1.2.12**
 * You can define a $_SESSION variable to set where the file will be created by the out() method.
