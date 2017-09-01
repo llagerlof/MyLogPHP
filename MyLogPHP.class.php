@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.13
+ * MyLogPHP 1.2.14
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -175,9 +175,10 @@ class MyLogPHP {
 		$backtrace_text = print_r($backtrace, true);
 		$filename_full = $backtrace[0]['file'];
 		$line_call = ' (' . $backtrace[0]['line'] . ')';
+		$method_call = (!empty($backtrace[1]['function'])) ? $backtrace[1]['function'] . '() :: ' : '';
 
 		$arr_file_name = explode('(', basename($filename_full));
-		$file_name = str_repeat(' ', 80 - strlen($arr_file_name[0] . $line_call)) . $arr_file_name[0] . $line_call;
+		$file_name = str_repeat(' ', 80 - strlen($method_call . $arr_file_name[0] . $line_call)) . $method_call . $arr_file_name[0] . $line_call;
 
 		$print_r_variable_to_output = print_r($variable_to_output, true) . "\n\n" . str_repeat('-', 80) . "\n";
 
