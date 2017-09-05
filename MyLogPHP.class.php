@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.14
+ * MyLogPHP 1.2.15
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -187,11 +187,11 @@ class MyLogPHP {
 		$datetime = date("H:i:s Y-m-d");
 
 		if (!empty($label)) {
-			$datetime_span_position = 80 - (strlen('[' . $label . '] ' . $variable_type) + strlen($datetime));
-			$print_r_variable_to_output = $file_name . "\n" . '[' . $label . '] ' . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$datetime_span_position = 80 - strlen($datetime);
+			$print_r_variable_to_output = $file_name . "\n" . str_repeat(' ', $datetime_span_position) . $datetime . "\n" . '[' . $label . '] ' . $variable_type . "\n\n" . $print_r_variable_to_output;
 		} else {
-			$datetime_span_position = 80 - (strlen($variable_type) + strlen($datetime));
-			$print_r_variable_to_output = $file_name . "\n" . $variable_type . str_repeat(' ', $datetime_span_position) . $datetime . "\n\n" . $print_r_variable_to_output;
+			$datetime_span_position = 80 - strlen($datetime);
+			$print_r_variable_to_output = $file_name . "\n" . $datetime . "\n" . $variable_type . "\n\n" . $print_r_variable_to_output;
 		}
 
 		file_put_contents($output_path . '_OUT_MyLogPHP.txt', $print_r_variable_to_output, $write_mode);
