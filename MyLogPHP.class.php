@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.17
+ * MyLogPHP 1.2.18
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -11,6 +11,8 @@
  * @link       http://github.com/llagerlof/MyLogPHP
  * @license    http://opensource.org/licenses/BSD-3-Clause New BSD License
  */
+
+namespace MyLogPHP;
 
 class MyLogPHP {
 
