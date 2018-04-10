@@ -81,15 +81,15 @@ $log->debug("select * from table",'DB');
 Writing a variable content to file "_OUT_MyLogPHP.txt"
 
 ```
-MyLogPHP::out($data);
+\MyLogPHP\MyLogPHP::out($data);
 
-MyLogPHP::out($data, array('LABEL' => 'variable $data');
+\MyLogPHP\MyLogPHP::out($data, array('LABEL' => 'variable $data');
 
-MyLogPHP::out($data, 'variable $data'); // same as above
+\MyLogPHP\MyLogPHP::out($data, 'variable $data'); // same as above
 
-MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::OVERWRITE));
+\MyLogPHP\MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::OVERWRITE));
 
-MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::APPEND)); // WRITE_MODE can be OVERWRITE or APPEND (APPEND is default)
+\MyLogPHP\MyLogPHP::out($data, array('LABEL' => 'variable $data', 'WRITE_MODE' => MyLogPHP::APPEND)); // WRITE_MODE can be OVERWRITE or APPEND (APPEND is default)
 
 ```
 
