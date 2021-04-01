@@ -5,7 +5,7 @@ MyLogPHP is a single PHP class to easily keep log files in CSV format.
 <h2>Install the latest version</h2>
 
 <h3>Direct download (just include this file in your script)</h3>
-<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.18)
+<a href="https://raw.githubusercontent.com/llagerlof/MyLogPHP/master/MyLogPHP.class.php">MyLogPHP.class.php</a> (1.2.19)
 <br>
 <h3>Or you can use Composer</h3>
 Edit your project's **composer.json** and add the required package: **"llagerlof/mylogphp": "dev-master"**
@@ -26,7 +26,7 @@ Any CSV reader can be used to open the generated logs, but If you need a recomen
 * One single file to rule them all!
 * Super easy start.
 * Two extra columns are automatically added in the CSV: the number of execution line and the path of host script where the log was called.
-* Minimum PHP version: 5.1
+* Minimum PHP version: 5.3
 
 <h2>Want more features? I am listening!</h2>
 
@@ -43,7 +43,7 @@ include('MyLogPHP.class.php');
 Instantiate the object. Optionally you can pass the log file name and the separator as a parameter. Default log file name is "`_`MyLogPHP-1.2.log.csv" in current folder, and default separator is comma (,).
 
 ```php
-$log = new MyLogPHP('./log/debug.log.csv');
+$log = new MyLogPHP\MyLogPHP('./log/debug.log.csv');
 ```
 
 Make sure the directory where the log will be created is writable.
@@ -60,7 +60,7 @@ That's it!
 <h2>Examples</h2>
 
 ```php
-$log = new MyLogPHP();
+$log = new MyLogPHP\MyLogPHP();
 
 $log->info('The program starts here.');
 
@@ -94,6 +94,9 @@ Writing a variable content to file "_OUT_MyLogPHP.txt"
 ```
 
 <h2>Changelog</h2>
+
+**1.2.19**
+* Read the configuration file only once per instance.
 
 **1.2.18**
 * Namespace added.
@@ -141,7 +144,7 @@ Writing a variable content to file "_OUT_MyLogPHP.txt"
 * All consecutives spaces and tabs are removed from output.
 
 **1.2.3**
-* PHPDOC comment style applied to the class. 
+* PHPDOC comment style applied to the class.
 * An issue with the newer version of PHP and the date() function was solved.
 
 **1.2.2**

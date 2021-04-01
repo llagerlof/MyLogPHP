@@ -1,6 +1,6 @@
 <?php
 /**
- * MyLogPHP 1.2.18
+ * MyLogPHP 1.2.19
  *
  * MyLogPHP is a single PHP class to easily keep log files in CSV format.
  *
@@ -33,6 +33,12 @@ class MyLogPHP {
 	 * @access private
 	 */
 	private $HEADERS;
+
+	/**
+	 * To log or not to log, that's the question.
+	 * @access private
+	 */
+	private $LOG_ENABLED = null;
 
 	/* @const Default tag. */
 	const DEFAULT_TAG = '--';
@@ -70,7 +76,7 @@ class MyLogPHP {
 	 */
 	private function log($errorlevel = 'INFO', $value = '', $tag) {
 
-		if (self::enabled()) {
+		if ($this->enabled()) {
 			$datetime = date("Y-m-d H:i:s");
 			if (!file_exists($this->LOGFILENAME)) {
 				$headers = $this->HEADERS . "\n";
@@ -156,7 +162,7 @@ class MyLogPHP {
 	 * @param mixed $options
 	 */
 	public static function out($variable_to_output, $options = null) {
-		if (self::enabled()) {
+		if ($this->enabled()) {
 			// $options = array('OUTPUT_PATH' => '', 'WRITE_MODE' => APPEND, 'LABEL' => 'Label');
 			// If OUTPUT_PATH is not defined, $_SESSION['MYLOGPHP_OUT_PATH'] is used instead. If the last is not defined too, current directory is used.
 			if (empty($options)) {
@@ -202,19 +208,27 @@ class MyLogPHP {
 		}
 	}
 
-	private static function enabled() {
+	private function enabled() {
+		if (!is_null($this->LOG_ENABLED)) {
+
+			return $this->LOG_ENABLED;
+		}
+
 		if (file_exists(dirname(__FILE__) . '/MyLogPHP.conf')) {
 			$contents = file(dirname(__FILE__) . '/MyLogPHP.conf');
 			foreach ($contents as $line) {
 				$config_value = explode('=', $line);
 				if (($config_value[0] == "enabled") && (trim($config_value[1]) == "false")) {
+					$this->LOG_ENABLED = false;
+
 					return false;
 				}
 			}
-
 		}
+
+		$this->LOG_ENABLED = true;
+
 		return true;
 	}
 }
-
 ?>
